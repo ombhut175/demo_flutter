@@ -1,5 +1,6 @@
 import 'package:demo_flutter/auth/sign_up.dart';
 import 'package:demo_flutter/firebase_options.dart';
+import 'package:demo_flutter/pages/home.dart';
 import 'package:demo_flutter/utils/ui.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -57,14 +58,12 @@ class MyApp extends StatelessWidget {
       home: StreamBuilder(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
-          print("::: main stream builder :::");
-          print(snapshot);
 
           if (snapshot.connectionState == ConnectionState.waiting) {
             return getCircularProgressIndicator();
           }
           if (snapshot.hasData) {
-            return const Placeholder();
+            return const Home();
           }
           return const SignUpPage();
         },
