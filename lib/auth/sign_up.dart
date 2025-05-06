@@ -1,4 +1,6 @@
+import 'package:demo_flutter/auth/login.dart';
 import 'package:demo_flutter/services/functions/authFunctions.dart';
+import 'package:demo_flutter/utils/helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -248,9 +250,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           ),
                           TextButton(
                             onPressed: () {
-                              // TODO: Navigate to Login Page
-                              print('Navigate to Login Page');
-                              // Example: Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                              pushReplacement(context: context, route: LoginPage());
                             },
                             style: TextButton.styleFrom(
                               padding: EdgeInsets.zero,
